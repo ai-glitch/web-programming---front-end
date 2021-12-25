@@ -1,4 +1,5 @@
 *{margin: 0px;}
+
 .menu-main {
     margin: 0px 0 0px;
     padding: 25px 0 5px;
@@ -39,3 +40,63 @@
 .menu-main a:hover:before, .menu-main .current:before {left: 0;}
 .menu-main a:hover:after, .menu-main .current:after {right: 0;}
 
+.footer-basic {
+    padding:40px 0;
+    background-color:white;
+    color:#4b4c4d;
+}
+
+.footer-basic ul {
+    padding:0;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+}
+
+.footer-basic ul a {
+    color:inherit;
+    text-decoration:none;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    opacity:0.8;
+}
+
+.footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:#aaa;
+    margin-bottom:0;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+
+.about_us{
+    font-size: 25px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+    margin-top: 25px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    color: #606060;
+}
+h1{
+    font-size: 40px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    margin-left: 100px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    color: #4b4c4d;
+}
+.imageau{
+    margin-left: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 800px;
+    height: 400px;
+}
+#lastp{
+    margin-bottom: 100px;
+}
+#video{
+    margin-left: 100px;
+}
