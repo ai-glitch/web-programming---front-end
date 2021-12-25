@@ -3,8 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <title>Presentation</title>
+<style>
+    body {
+        background-color: lavenderblush;
+        transition: all 1s ease-in;
+        padding: 50px;
+        color: #111;
+        font-family: sans-serif;
+        line-height: 32px;
+        font-size: 18px;
+    }
+
+    h1 {
+        font-family: "cursive", "Lucida Calligraphy";
+        font-size: 200px;
+        margin-bottom: 500px;
+        padding-top: 140px;
+    }
+
+    .colorOne {
+        background-color: thistle;
+        color: #000;
+    }
+
+    .colorTwo {
+        background-color: #FFF;
+        color: #000;
+    }
+
+    #mainContent li {
+        padding-left: 7px;
+        margin-bottom: 15px;
+        transition: all .2s ease-in-out;
+        transform: translate3d(20px, 0, 0);
+        opacity: 0;
+    }
+
+    #mainContent li.active {
+        transform: translate3d(0px, 0, 0);
+        opacity: 1;
+    }
+
+    p{
+        font-family: Monospace;
+        text-transform: uppercase;
+        font-size: 30px;
+    }
+
+
+    #mainContent .firstBox {
+        font-weight: bold;
+        transform: translate3d(-30px, 0, 0);
+        transition: all 1.5s ease-out;
+        opacity: 0;
+    }
+
+    #mainContent .firstBox.active {
+        background-color: #333;
+        color: #FFF;
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+</style>
 </head>
 <body>
+<div id="mainContent">
+    <h1 align="center">SN</h1>
+    <p class="firstBox">Team members and their duties:</p>
+    <ol class="myList">
+        <li>Aizharkyn Alipova - did everything, from slides to JavaScript</li>
+    </ol>
+    <p>Time management:</p>
+    <ol class="myList">
+        <li>Idea   <img src="2cd43b_f47d41d7ca9140a492f2aaa3a213513f_mv2.png" width="30px" height="30px"></li>
+        <li>Registration to final in google forms   <img src="note.png"width="30" height="30"></li>
+        <li>Starting developing with HTML</li>
+        <li>Design with CSS</li>
+        <li>Adding demo of site on GitHub</li>
+        <li>Continuing the site, adding JS</li>
+        <li>Final touches</li>
+        <li>Protect the project and get good points   <img src="kindpng_4315327.png" height="30" width="30"></li>
+    </ol>
 
+    <p>Goals</p>
+    <ul class="myList">
+        <li>The main idea and mission of the company is to revive the stagnant tea business, to make modern adjustments in the already existing and developed market,<br> to give people worthy of their high-quality customer service along with high quality products. Our task is to create not just a network of tea shops, our task is to build an advanced world company in which every client, employee and partner will be appreciated, a company that our compatriots will notice and be proud of.</li>
+    </ul>
+
+    <p>Target audience:</p>
+    <ul>
+        <li>Representatives of the middle class</li>
+        <li>Middle-aged women</li>
+        <li>Young people 18-25 years old </li>
+        <li>Business people</li>
+        <li>Married couples.</li>
+    </ul></div>
+
+<script>
+    var isScrolling = false;
+
+    window.addEventListener("scroll", throttleScroll, false);
+
+    function throttleScroll(e) {
+        if (isScrolling == false) {
+            window.requestAnimationFrame(function() {
+                scrolling(e);
+                isScrolling = false;
+            });
+        }
+        isScrolling = true;
+    }
+
+    document.addEventListener("DOMContentLoaded", scrolling, false);
+
+    var listItems = document.querySelectorAll("#mainContent li");
+    var firstBox = document.querySelector(".firstBox");
+    function scrolling(e) {
+
+        if (isPartiallyVisible(firstBox)) {
+            firstBox.classList.add("active");
+
+            document.body.classList.add("colorOne");
+            document.body.classList.remove("colorTwo");
+        } else {
+            document.body.classList.remove("colorOne");
+            document.body.classList.remove("colorTwo");
+        }
+
+        for (var i = 0; i < listItems.length; i++) {
+            var listItem = listItems[i];
+
+            if (isPartiallyVisible(listItem)) {
+                listItem.classList.add("active");
+            } else {
+                listItem.classList.remove("active");
+            }
+        }
+    }
+
+    function isPartiallyVisible(el) {
+        var elementBoundary = el.getBoundingClientRect();
+
+        var top = elementBoundary.top;
+        var bottom = elementBoundary.bottom;
+        var height = elementBoundary.height;
+
+        return ((top + height >= 0) && (height + window.innerHeight >= bottom));
+    }
+
+    function isFullyVisible(el) {
+        var elementBoundary = el.getBoundingClientRect();
+
+        var top = elementBoundary.top;
+        var bottom = elementBoundary.bottom;
+
+        return ((top >= 0) && (bottom <= window.innerHeight));
+    }
+</script>
 </body>
 </html>
